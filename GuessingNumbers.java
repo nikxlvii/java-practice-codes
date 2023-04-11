@@ -4,18 +4,24 @@ public class GuessingNumbers {
     public static void main(String[] args){
         Scanner input = new Scanner(System.in);
 
-        System.out.print("Guess a number between 0 to 100: ");
-
-        int guess = input.nextInt();
+        int guess=-1;
 
         int num = (int)(Math.random() * 100);
 
-        while (num != guess){
-            System.out.print("That's quite not correct! Guess again: ");
-            guess =input.nextInt();
-        }
-        System.out.println("Congrats! You have guessed the correct number!");
-        
+        while (guess != num){
+            System.out.print("\nEnter your guess: ");
+            guess = input.nextInt();
+
+            if (guess == num){
+                System.out.println("Congrats! You have guessed the correct number " + guess);
+            }
+            else if (guess > num){
+                System.out.println("Not quite there! The guess is too high.");
+            }
+            else{
+                System.out.println("Not quite there! The guess is too low.");
+            }
+        }        
         input.close();
     }
 }
